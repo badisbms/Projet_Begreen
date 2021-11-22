@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -34,6 +36,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Plant::class, mappedBy="user")
+     */
+    private $fk_Plant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Promotion::class, inversedBy="fk_User")
+     */
+    private $promotion;
+
+    public function __construct()
+    {
+        $this->fk_Plant = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,5 +149,71 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Plant[]
+     */
+    public function getFkPlant(): Collection
+    {
+        return $this->fk_Plant;
+    }
+
+    public function addFkPlant(Plant $fkPlant): self
+    {
+        if (!$this->fk_Plant->contains($fkPlant)) {
+            $this->fk_Plant[] = $fkPlant;
+            $fkPlant->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFkPlant(Plant $fkPlant): self
+    {
+        if ($this->fk_Plant->removeElement($fkPlant)) {
+            // set the owning side to null (unless already changed)
+            if ($fkPlant->getUser() === $this) {
+                $fkPlant->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPromotion(): ?Promotion
+    {
+        return $this->promotion;
+    }
+
+    public function setPromotion(?Promotion $promotion): self
+    {
+        $this->promotion = $promotion;
+
+        return $this;
     }
 }
