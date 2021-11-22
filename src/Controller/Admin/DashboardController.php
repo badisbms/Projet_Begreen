@@ -22,7 +22,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Projet Begreen');
+            ->setTitle('Espace Admin Begreen');
     }
 
     public function configureMenuItems(): iterable
