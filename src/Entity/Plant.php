@@ -70,7 +70,7 @@ class Plant
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="plant", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="plant", orphanRemoval=true, cascade={"persist"})
      */
     private $images;
 
