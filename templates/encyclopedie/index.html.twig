@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EncyclopedieController!{% endblock %}
+{% block title %}Hello EncyclopedieController!
+{% endblock %}
 
 {% block body %}
 
-{% for plant in plants %}
- {% for image in plant.images|slice(0,1)  %}
-<div class="card m-5" style="width: 18rem;">
-  <img src="{{ asset('/uploads/' ~ image.name)}}" class="card-img-top" />
-  
-  <div class="card-body">
-    <h5 class="card-title">{{ plant.frenchName }}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-{% endfor %}
-{% endfor %}
+	{% for plant in plants %}
+		{% for image in plant.images|slice(0,1)  %}
+			<div class="card m-5" style="width: 18rem;">
+				<img src="{{ asset('/uploads/' ~ image.name)}}" class="card-img-top"/>
+				<div class="card-body">
+					<h5 class="card-title">{{ plant.frenchName }}</h5>
+					<a href="{{ path('encyclopedie_show', {'id': plant.id}) }}" class="btn btn-primary">Voir en détail</a>
+				</div>
+			</div>
+		{% endfor %}
+	{% endfor %}
 {% endblock %}
