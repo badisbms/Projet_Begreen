@@ -5,7 +5,14 @@
 {% block body %}
     <h1>Plant</h1>
 
+    {% for i in image %}
+    <img src="{{ asset('/uploads/' ~ i.name)}}" width="150px"/>
+     
+    {% endfor %}
+
     <table class="table">
+
+ 
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,6 +22,7 @@
                 <th>FrenchName</th>
                 <td>{{ plant.frenchName }}</td>
             </tr>
+
             <tr>
                 <th>LatinName</th>
                 <td>{{ plant.latinName }}</td>

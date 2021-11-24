@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PlantRepository;
+use App\Repository\ImagesRepository;
 use App\Entity\Plant;
 
 /**
@@ -27,10 +28,12 @@ class EncyclopedieController extends AbstractController
     /**
      * @Route("/{id}", name="encyclopedie_show", methods={"GET"})
      */
-    public function show(Plant $plant): Response
+    public function show(int $id,ImagesRepository $imagesRepository, Plant $plant): Response
     {
         return $this->render('encyclopedie/detailPlant.html.twig', [
             'plant' => $plant,
+            //permet de récupérer les images associé en BDD a l'image grace a l'id
+            'image' => $imagesRepository->findByExampleField($id),
         ]);
     }
 
