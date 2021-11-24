@@ -19,22 +19,21 @@ class ImagesRepository extends ServiceEntityRepository
         parent::__construct($registry, Images::class);
     }
 
-    // /**
-    //  * @return Images[] Returns an array of Images objects
-    //  */
-    /*
+    /**
+     * @return Images[] Returns an array of Images objects
+     */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
+            ->andWhere('i.plant = :val')
             ->setParameter('val', $value)
             ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Images

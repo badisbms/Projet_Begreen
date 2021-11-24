@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plant{% endblock %}
+
+{% block body %}
+    <h1>Plant</h1>
+
+    {% for i in image %}
+    <img src="{{ asset('/uploads/' ~ i.name)}}" width="150px"/>
+     
+    {% endfor %}
+
+    <table class="table">
+
+ 
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ plant.id }}</td>
+            </tr>
+            <tr>
+                <th>FrenchName</th>
+                <td>{{ plant.frenchName }}</td>
+            </tr>
+
+            <tr>
+                <th>LatinName</th>
+                <td>{{ plant.latinName }}</td>
+            </tr>
+            <tr>
+                <th>Family</th>
+                <td>{{ plant.family }}</td>
+            </tr>
+            <tr>
+                <th>Origin</th>
+                <td>{{ plant.origin }}</td>
+            </tr>
+            <tr>
+                <th>Flowering</th>
+                <td>{{ plant.flowering }}</td>
+            </tr>
+            <tr>
+                <th>Planting</th>
+                <td>{{ plant.planting }}</td>
+            </tr>
+            <tr>
+                <th>Maintenance</th>
+                <td>{{ plant.maintenance }}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ plant.notes }}</td>
+            </tr>
+            <tr>
+                <th>IsInEncyclopedia</th>
+                <td>{{ plant.isInEncyclopedia ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('plant_index') }}">back to list</a>
+
+    <a href="{{ path('plant_edit', {'id': plant.id}) }}">edit</a>
+
+    {{ include('plant/_delete_form.html.twig') }}
+{% endblock %}
