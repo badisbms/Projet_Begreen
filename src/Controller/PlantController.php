@@ -17,15 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PlantController extends AbstractController
 {
-    /**
-     * @Route("/", name="plant_index", methods={"GET"})
-     */
-    public function index(PlantRepository $plantRepository): Response
-    {
-        return $this->render('plant/index.html.twig', [
-            'plants' => $plantRepository->findAll(),
-        ]);
-    }
 
     /**
      * @Route("/new", name="plant_new", methods={"GET", "POST"})
@@ -81,7 +72,7 @@ class PlantController extends AbstractController
             $entityManager->persist($plant);
             $entityManager->flush();
 
-            return $this->redirectToRoute('plant_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('plant/new.html.twig', [
@@ -90,15 +81,6 @@ class PlantController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="plant_show", methods={"GET"})
-     */
-    public function show(Plant $plant): Response
-    {
-        return $this->render('plant/show.html.twig', [
-            'plant' => $plant,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="plant_edit", methods={"GET", "POST"})
@@ -152,7 +134,7 @@ class PlantController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('plant_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('plant/edit.html.twig', [
@@ -171,6 +153,6 @@ class PlantController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('plant_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 }
