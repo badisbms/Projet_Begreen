@@ -1,0 +1,10 @@
+.masthead {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/be1.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: auto;
+    height: 700px;
+    margin-bottom: 40px;
+}
