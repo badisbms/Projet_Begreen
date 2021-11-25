@@ -21,6 +21,7 @@ class PlantController extends AbstractController
     /**
      * @Route("/new", name="plant_new", methods={"GET", "POST"})
      */
+    
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $plant = new Plant();
