@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}test twig {% endblock %}</title>
+
+    <link rel="icon" type="image/jpg" sizes="30x60" href="{{ asset("assets/images/loginicon-30x60.jpg") }}">
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="{{ asset("assets") }}">
+
+{# <script src="{{ asset("assets/js/register.js") }}"></script>  #}
+
+{% endblock %}
+</head>
+
+<body>
+    {{ include('includes/register.html.twig') }}
+ {% block body %}
+{% endblock  %}
+
+ {% block javascripts %}
+
+ {% endblock javascripts %}
+
+</body>
+</html>

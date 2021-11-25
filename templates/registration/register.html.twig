@@ -3,20 +3,68 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+ <style>
+  .btn[type="submit"] {
+    margin: 2em 0 1.5em;
+    letter-spacing: 3px;
+    color:white;
+    background-color : #5cb136;
+  }
+ .email{
+ background-color : red;
+
+ }
+.logbox {
+  border: solid 2px;
+  height: 70%;
+  width: 30%;
+  position: absolute;
+  margin-left: 34%;
+  margin-top: 5%;
+  border-radius: 10%;
+  background: linear-gradient(90deg, #6e865e, #5cb136);
+}
+
+body {
+  background:color:#5cb136;
+  background: linear-gradient(90deg, #5cb136, #55e7fc);
+}
+
+{# button {
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    border-color: rgb(0, 128, 128);
+    padding: 2%;
+    border-style:solid;
+    margin-left: 110px;
+   
+} #}
+
+
+
+  
+ </style>
+
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
     <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-       {{ form_row(registrationForm.name) }}
-       {{ form_row(registrationForm.lastName) }}
+     <div class="logbox">
+
+    {{ form_start(registrationForm  )}}
+        {{ form_row(registrationForm.email,{ 'attr': {'class': 'email'} }) }}
+     {{ form_row(registrationForm.plainPassword, { 'attr': {'class': 'Paassword'} })}}
+            {# label: 'Password' #}
+        {# }} #}
+       {{ form_row(registrationForm.name, { 'attr': {'class': 'name'} }) }}
+       {{ form_row(registrationForm.lastName, { 'attr': {'class': 'lastName'} }) }}
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+
+     </div>
 {% endblock %}
