@@ -69,11 +69,11 @@ class PlantController extends AbstractController
                 //addphoto proviens de l'entité plant
                 $plant->addImage($img2);
             }
-
+            $plant->setUser($this->getUser());
             $entityManager->persist($plant);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('encyclopedie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('plant/new.html.twig', [
@@ -135,7 +135,7 @@ class PlantController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('encyclopedie_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('plant/edit.html.twig', [
