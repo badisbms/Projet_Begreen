@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte interactive{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .responsive {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+
+<div class="example-wrapper">
+    <h1> Visitez le domaine Fondespierre !
+        <ul>
+        <img src="/maps/bgblanc.png" width="200" height="200" title="begreen" alt="begreen" />
+        +
+        <img src="/maps/gmapslogo.png" width="200" height="200" title="google" alt="google" />
+
+    </ul>
+    </h1>
+    
+
+
+    Essayez notre carte personalisée :
+    <ul>
+        
+        <li>Sur votre mobile équipé de l'appli Google Maps, <code><a href="{{ '/mapredirect' }}">cliquez ici </a></code></li>
+        
+        <li>Si votre GPS est activé vous verrez votre position en direct ! </li>
+    </ul>
+
+{#     <ul>
+        <img src="/maps/MapsPhoneScreenshot.jpg" width="216" height="480" title="MapsScreenshot" alt="MapsScreenshot" />
+    </ul> #}
+
+    <iframe src="https://www.google.com/maps/d/embed?mid=1KPOK-Xct6HaB7aOfBcpdCGvdi6BV5MtL" width="640" height="480"></iframe>
+
+</div>
+{% endblock %}
