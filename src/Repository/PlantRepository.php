@@ -19,22 +19,21 @@ class PlantRepository extends ServiceEntityRepository
         parent::__construct($registry, Plant::class);
     }
 
-    // /**
-    //  * @return Plant[] Returns an array of Plant objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Plant[] Returns an array of Plant objects
+     */
+    
+    public function findUserPlant($userId)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.user = :val')
+            ->setParameter('val', $userId)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Plant
