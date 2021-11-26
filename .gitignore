@@ -19,4 +19,8 @@
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-./composer.lock
+
+
+/public/uploads
+
+

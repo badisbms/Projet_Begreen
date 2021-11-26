@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}Encyclopedie
+{% endblock %}
+
+
+{% block body %}
+
+
+	<h1 class="encyclo_title">Encyclopedie des Plantes ☘️</h1>
+
+
+	<div class="row row-cols-3 row-cols-md-3 g-10">
+		{% for plant in plants %}
+			{% for image in plant.images|slice(0,1)  %}
+				<div class="col">
+					<div class="card m-7" style="width: 18rem;">
+						<img src="{{ asset('/uploads/' ~ image.name)}}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{ plant.frenchName }}</h5>
+							<a href="{{ path('encyclopedie_show', {'id': plant.id}) }}" class="btn btn-primary">Voir en détail</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
+
+
+{% endblock %}
