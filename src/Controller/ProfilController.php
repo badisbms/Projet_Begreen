@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\PlantRepository;
 
 /**
  * @Route("/profil")
@@ -19,15 +19,18 @@ class ProfilController extends AbstractController
     /**
      * @Route("/", name="profil")
      */
-    public function profil() : Response {
+    public function profil(PlantRepository $plantRepository): Response
+    {
         $user = $this->getUser();
+        $id = $user->getId();
+
         return $this->render('profil/show.html.twig', [
             'user' => $user,
+            'plant' => $plantRepository->findUserPlant($id),
         ]);
     }
 
-
-      /**
+    /**
      * @Route("/{id}/edit", name="profil_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
@@ -48,12 +51,12 @@ class ProfilController extends AbstractController
     }
 
 
-     /**
+    /**
      * @Route("/{id}", name="profil_delete", methods={"POST"})
      */
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
         }
@@ -94,7 +97,7 @@ class ProfilController extends AbstractController
     //     ]);
     // }
 
-  
 
-   
+
+
 }
