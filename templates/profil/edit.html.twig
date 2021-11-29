@@ -1,56 +1,48 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Edit User
+{% block title %}Begreen - Changer mes informations
 {% endblock %}
 
 {% block body %}
 
-	<link rel="stylesheet" href="{{asset('css/profil.css')}}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="{{asset('css/modifProfil.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-	<div class="d-flex bg-white shadow rounded overflow-hidden m-5">
-			<div class="px-5 pt-5 pb-5 cover">
-	
-		</div>
-		<div class="row py-5 px-4">
-
-			<div class="col-md-9 mx-auto">
-
-				<div class="d-flex flex-column">
-					<h1 class="mb-3">Modifiez Votre Profil</h1>
-
+	<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+		<div class="wrapper wrapper--w680">
+			<div class="card card-4">
+				<div class="card-body">
+					<h2 class="title">Modifier mon Profil</h2>
 					{{ form_start(form) }}
-					<div class="form-row">
-						<div class="form-group inline">{{form_row(form.name, {'attr':{'class':'form-control'}})}}</div>
-						<div class="form-group">{{form_row(form.lastName, {'attr':{'class':'form-control'}})}}</div>
+					<div class="row row-space">
+						<div class="col-2">
+							<div class="input-group">
+								<div class="form-group mt-4">{{form_row(form.lastName, {'attr':{'class':'input--style-4'}})}}</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="input-group">
+								<div class="form-group mt-4">{{form_row(form.name, {'attr':{'class':'input--style-4'}})}}</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-row">
-						<div class="form-group mr-5">{{form_row(form.email, {'attr':{'class':'form-control'}})}}</div>
+					<div class="row row-space">
+						<div class="col-2">
+							<div class="input-group">
+								<div class="form-group">{{form_row(form.email, {'attr':{'class':'input--style-4'}})}}</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="input-group">
+								<a class="password" href="{{ path('app_forgot_password_request') }}">Changer Mon mot de passe</a>
+							</div>
+						</div>
 					</div>
-					<div class="form-row">
-						<div class="form-group">{{form_row(form.promotion, {'attr':{'class':'form-control'}})}}</div>
+					<div class="p-t-15">
+						<button class="btn btn--radius-2 btn--green" type="submit">Confirmer</button>
 					</div>
-					<div class="form-row">
-						<a href="{{ path('app_forgot_password_request') }}">Changer Mon mot de passe</a>
-
-					</div>
-					<div class="form-row">
-											<button type="submit" class="btn btn-success btn-sm mt-3 font-weight-bold">Modifier le profil</button>
-
-					</div>
-
 					{{ form_end(form) }}
 				</div>
-
 			</div>
 		</div>
-
-		{# {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }} #}
-
-	{# <a href="{{ path('profil_index') }}">back to list</a> #}
-		{# 
-					    {{ include('profil/_delete_form.html.twig') }} #}
-
-
-	{% endblock %}
+	</div>
+{% endblock %}
