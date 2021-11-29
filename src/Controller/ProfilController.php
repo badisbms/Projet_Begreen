@@ -14,6 +14,7 @@ use App\Repository\PlantRepository;
 /**
  * @Route("/profil")
  */
+
 class ProfilController extends AbstractController
 {
     /**
