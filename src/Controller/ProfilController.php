@@ -42,7 +42,7 @@ class ProfilController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('profil_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('profil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('profil/edit.html.twig', [
