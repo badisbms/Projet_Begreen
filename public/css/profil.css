@@ -1,0 +1,24 @@
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    background-color: rgb(31, 173, 90);
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+body {
+    /* background: #654ea3;
+    background: linear-gradient(to right, #e96443, #904e95); */
+    min-height: 100vh;
+    overflow-x: hidden
+}
+
+
+
+  .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transform: translateY(-20px);
+    transition: 0.5s;
+  }
