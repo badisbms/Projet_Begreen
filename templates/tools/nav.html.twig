@@ -1,22 +1,31 @@
 <link rel="stylesheet" href="{{asset('css/nav.css')}}">
 
 <body class="h-100 text-center text-white bg-dark">
-	<header class="mb-auto" class="h-100 text-center text-white bg-dark">
-		<div header class="masthead">
-			<h3 class="float-md-start mb-0">BEGREEN</h3>
-			<nav class="nav nav-masthead justify-content-center float-md-end">
+	<header class="h-100 text-center text-white bg-dark">
+		<div
+			header class="masthead">
+			{# <h3 class="float-md-start mb-0">Begreen</h3> #}
+			<nav class="nav nav-masthead justify-content-center">
 				<a class="nav-link alert alert-light m-2" aria-current="page" href="#">Home</a>
-				<a class="nav-link alert alert-light m-2" href="#" class="alert-link">Encyclopedie</a>
+				<a class="nav-link alert alert-light m-2" href="#" class="alert-link">FAQs</a>
 				<a class="nav-link alert alert-light m-2" href="{{ path('app_login') }}">Login</a>
 			</nav>
 
-			<div class="px-4 py-2 my-5 text-center">
-				<div class="col-lg-6 mx-auto">
-					<img class="d-block mx-auto mb-4" src="/img/beGreenBlancWeb.svg" alt="" width="300" height="100">
+			<div class="px-4 py-2 my-0 text-center">
 
-					<div class="d-grid gap-2 d-sm-flex justify-content-sm-center"></div>
+				<div class="col-lg-6 mx-auto">
+					<img class="d-block mx-auto mb-4" src="/img/beGreenBlancWeb.svg" alt="" width="400" height="200">
+
+					<div class="col-lg-8 col-md-8 mx-auto row py-lg-3">
+						<h1 class="fw-light">Accès Apprenants</h1>
+						<p class="lead text-white bg-white">the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+						<p>
+							<a href="{{ path('app_register') }}" class="btn btn-primary my-2">Sign up</a>
+							<a href="{{ path('app_login') }}" class="btn btn-secondary my-2">Sign in</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</header>
-</body>
+	</div>
+</body></header></body>
