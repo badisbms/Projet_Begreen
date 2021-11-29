@@ -1,13 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Edit User
+{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
 
-    {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }}
+	<link rel="stylesheet" href="{{asset('css/profil.css')}}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
 
-    {# <a href="{{ path('profil_index') }}">back to list</a> #}
-{# 
-    {{ include('profil/_delete_form.html.twig') }} #}
-{% endblock %}
+	<div class="d-flex bg-white shadow rounded overflow-hidden m-5">
+			<div class="px-5 pt-5 pb-5 cover">
+	
+		</div>
+		<div class="row py-5 px-4">
+
+			<div class="col-md-9 mx-auto">
+
+				<div class="d-flex flex-column">
+					<h1 class="mb-3">Modifiez Votre Profil</h1>
+
+					{{ form_start(form) }}
+					<div class="form-row">
+						<div class="form-group inline">{{form_row(form.name, {'attr':{'class':'form-control'}})}}</div>
+						<div class="form-group">{{form_row(form.lastName, {'attr':{'class':'form-control'}})}}</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group mr-5">{{form_row(form.email, {'attr':{'class':'form-control'}})}}</div>
+					</div>
+					<div class="form-row">
+						<div class="form-group">{{form_row(form.promotion, {'attr':{'class':'form-control'}})}}</div>
+					</div>
+					<div class="form-row">
+						<a href="{{ path('app_forgot_password_request') }}">Changer Mon mot de passe</a>
+
+					</div>
+					<div class="form-row">
+											<button type="submit" class="btn btn-success btn-sm mt-3 font-weight-bold">Modifier le profil</button>
+
+					</div>
+
+					{{ form_end(form) }}
+				</div>
+
+			</div>
+		</div>
+
+		{# {{ include('profil/_form.html.twig', {'button_label': 'Update'}) }} #}
+
+	{# <a href="{{ path('profil_index') }}">back to list</a> #}
+		{# 
+					    {{ include('profil/_delete_form.html.twig') }} #}
+
+
+	{% endblock %}
