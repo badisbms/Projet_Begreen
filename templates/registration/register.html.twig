@@ -101,14 +101,14 @@
 	<div class="bg container-sm">
 		<div class="text-center container-sm">
 			{{ form_start(registrationForm  )}}
-			{{ form_row(registrationForm.name, { 'attr': {'class': 'name', 'placeholder': 'Name'} }) }}
-			{{ form_row(registrationForm.lastName, { 'attr': {'class': 'lastName', 'placeholder': 'Last Name'} }) }}
+			{{ form_row(registrationForm.name, { 'attr': {'class': 'name', 'placeholder': 'Prenom'} }) }}
+			{{ form_row(registrationForm.lastName, { 'attr': {'class': 'lastName', 'placeholder': 'Nom'} }) }}
 
 			{{ form_row(registrationForm.email,{ 'attr': {'class': 'email', 'placeholder': 'Email'} }) }}
-			{{ form_row(registrationForm.plainPassword, { 'attr': {'class': 'Password','placeholder': 'Password'} })}}
+			{{ form_row(registrationForm.plainPassword, { 'attr': {'class': 'Password','placeholder': 'Mot de Passe'} })}}
 			{# label: 'Password' #}
 			{# }} #}
-				<button type="submit" class="btn"> Register</button>
+				<button type="submit" class="btn"> S'inscrire</button>
 			{{ form_end(registrationForm) }}
 
 		</div>
