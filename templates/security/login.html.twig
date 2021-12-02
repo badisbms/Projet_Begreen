@@ -1,8 +1,107 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+
+<style>
+		.btn[type="submit"] {
+			margin: 2em 0 1.5em;
+			letter-spacing: 3px;
+			color: white;
+			background-color: #5cb136;
+            margin-top: 22%;
+
+
+		}
+
+
+		#inputEmail {
+         margin-top: 10%; 
+         text-align: center;
+		 border-radius: 10px;
+		 width: 270px;
+         height: 40px;
+         margin-left: 10%;
+		}
+
+
+		#inputPassword{
+         margin-top: 10%;
+		 text-align: center;
+		 border-radius: 10px;
+		 width: 270px;
+         height: 40px;
+         margin-left: 10%;
+		}
+        
+		.loginbox {
+			border: solid 2px;
+			height: 80%;
+			width: 40%;
+			position: absolut;
+			margin-left: 34%;
+			margin-top: 10%;
+			margin-right: 30%;
+			border-radius: 10%;
+			{
+				# background: linear-gradient(90deg, #6e865e, #5cb136); #
+			}
+		}
+
+		body {
+			
+			
+			background-image: url("asset/login.jpeg");
+			background-position:center;
+		    background-repeat: no-repeat;
+            background-color: #5cb136;
+			 
+			
+		}
+         
+         {# .h1.h3.mb-3.font-weight-normal {
+                font-size: 43px;
+                color: white;
+                margin: 30%;
+                text-align: center;
+                font-size: 38px;
+                color: #f9fafb;
+                } #}
+
+		
+		{# label.required {
+			display: none;
+		} #}
+		.bg {
+			background-color:#6e865e ;
+			padding: 20px;
+			width: 402px;
+			height: 500px;
+			margin-top: 0px;
+			border-radius: 10px;
+            margin-top: 141px;
+
+
+		}
+    h1{
+                color: white;
+               
+                text-align: center;
+                font-size: 38px;
+                color: #f9fafb;
+                font-size: 20px;
+                margin-top: 23px;
+
+    }
+	</style>
+
+
+
+
+
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -13,12 +112,15 @@
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
+  
+	<div class="bg container-sm">
+		<div class="text-center container-sm">
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <label for="inputEmail"></label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus type="text" placeholder="Email">
+    <label for="inputPassword"></label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required type="text" placeholder="Password">
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -39,4 +141,6 @@
         Sign in
     </button>
 </form>
+</div>
+</div>
 {% endblock %}
