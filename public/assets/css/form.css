@@ -11,16 +11,16 @@
 .name{
      margin-top: 10%;
      text-align: center;
- border-radius: 10px;
- width: 270px;
+     border-radius: 10px;
+     width: 270px;
      height: 40px;
 }
 .lastName{
 
       margin-top: 10%;
-  text-align: center;
+      text-align: center;
       border-radius: 10px;
-  width: 270px;
+      width: 270px;
       height: 40px;
 
 }
