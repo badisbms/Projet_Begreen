@@ -1,0 +1,81 @@
+.btn[type="submit"] {
+  margin: 2em 0 1.5em;
+  letter-spacing: 3px;
+  color: white;
+  background-color: #5cb136;
+        margin-top: 22%;
+
+
+}
+
+.name{
+     margin-top: 10%;
+     text-align: center;
+     border-radius: 10px;
+     width: 270px;
+     height: 40px;
+}
+.lastName{
+
+      margin-top: 10%;
+      text-align: center;
+      border-radius: 10px;
+      width: 270px;
+      height: 40px;
+
+}
+
+.email {
+     margin-top: 10%; 
+     text-align: center;
+ border-radius: 10px;
+ width: 270px;
+     height: 40px;
+}
+.Password{
+     margin-top: 10%;
+ text-align: center;
+ border-radius: 10px;
+ width: 270px;
+     height: 40px;
+
+}
+    
+.logbox {
+  border: solid 2px;
+  height: 80%;
+  width: 40%;
+  position: absolut;
+  margin-left: 34%;
+  margin-top: 10%;
+  margin-right: 30%;
+  border-radius: 10%;
+  
+    /* # background: linear-gradient(90deg, #6e865e, #5cb136); # */
+
+}
+
+body {
+  background: color #5cb136;
+  background: linear-gradient(90deg, #5cb136, #55e7fc);
+}
+
+
+
+label.required {
+  display: none;
+}
+.bg {
+  background-color:#6e865e ;
+  padding: 20px;
+  width: 402px;
+  height: 500px;
+  margin-top: 0px;
+  border-radius: 10px;
+
+}
+h1{
+  color:green;
+  margin-top: 92px;
+  text-align: center;
+}
