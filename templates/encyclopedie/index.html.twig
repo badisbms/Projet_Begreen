@@ -8,26 +8,29 @@
 
 	<h1 class="encyclo_title">Encyclopedie des Plantes ☘️</h1>
 
-  <div class="container">
-	<div class="row row-cols-3 row-cols-md-4 g-2">
-      
-		{% for plant in plants %}
+	<div class="container">
+		<div class="row row-cols-3 row-cols-md-4 g-4">
 
-			{% for image in plant.images|slice(0,1)  %}
-				<div class="col">
-					<div class="card" style="width: 18rem;">
-						<img src="{{ asset('/uploads/' ~ image.name)}}" class="card-img-top" alt="...">
-						<div class="card-body">
-							<h5 class="card-title">{{ plant.frenchName }}</h5>
-              <hr>
-							<a href="{{ path('encyclopedie_show', {'id': plant.id}) }}" class="btn btn-primary">Voir en détail</a>
+			{% for plant in plants %}
+
+				{% for image in plant.images|slice(0,1)  %}
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img src="{{ asset('/uploads/' ~ image.name)}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{ plant.frenchName }}</h5>
+								<hr>
+								<div class="text-center">
+									<a href="{{ path('encyclopedie_show', {'id': plant.id}) }}" class="btn btn-success btn-sm mt-3 p-1 font-weight-bold ">Voir en détail</a>
+
+								</div>
+							</div>
 						</div>
 					</div>
-			   	</div>
+				{% endfor %}
 			{% endfor %}
-		{% endfor %}
 
+		</div>
 	</div>
-</div>
-  {{ knp_pagination_render(plants) }}
+	{{ knp_pagination_render(plants) }}
 {% endblock %}
