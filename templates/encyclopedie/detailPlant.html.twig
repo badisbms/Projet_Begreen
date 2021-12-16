@@ -1,61 +1,158 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Plant{% endblock %}
+{% block title %}Plant
+{% endblock %}
 
 {% block body %}
-    <h1>Plant</h1>
+	{# <h1>Plant</h1>
+		
+		    {% for i in image %}
+		    <img src="{{ asset('/uploads/' ~ i.name)}}" width="150px"/>
+		     
+		    {% endfor %}
+		
+		    <table class="table">
+		
+		 
+		        <tbody>
+		            <tr>
+		                <th>Id</th>
+		                <td>{{ plant.id }}</td>
+		            </tr>
+		            <tr>
+		                <th>FrenchName</th>
+		                <td>{{ plant.frenchName }}</td>
+		            </tr>
+		
+		            <tr>
+		                <th>LatinName</th>
+		                <td>{{ plant.latinName }}</td>
+		            </tr>
+		            <tr>
+		                <th>Family</th>
+		                <td>{{ plant.family }}</td>
+		            </tr>
+		            <tr>
+		                <th>Origin</th>
+		                <td>{{ plant.origin }}</td>
+		            </tr>
+		            <tr>
+		                <th>Flowering</th>
+		                <td>{{ plant.flowering }}</td>
+		            </tr>
+		            <tr>
+		                <th>Planting</th>
+		                <td>{{ plant.planting }}</td>
+		            </tr>
+		            <tr>
+		                <th>Maintenance</th>
+		                <td>{{ plant.maintenance }}</td>
+		            </tr>
+		            <tr>
+		                <th>Notes</th>
+		                <td>{{ plant.notes }}</td>
+		            </tr>
+		            <tr>
+		                <th>IsInEncyclopedia</th>
+		                <td>{{ plant.isInEncyclopedia ? 'Yes' : 'No' }}</td>
+		            </tr>
+		        </tbody>
+		    </table> #}
 
-    {% for i in image %}
-    <img src="{{ asset('/uploads/' ~ i.name)}}" width="150px"/>
-     
-    {% endfor %}
+	<section class="py-5">
+		<div class="container px-4 px-lg-5 my-5">
+			<div class="row gx-4 gx-lg-5 align-items-center">
 
-    <table class="table">
+				<div class="col-md-6">
 
- 
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ plant.id }}</td>
-            </tr>
-            <tr>
-                <th>FrenchName</th>
-                <td>{{ plant.frenchName }}</td>
-            </tr>
+            {% for i in image %}
+		        <img class="card-img-top mb-5 mb-md-0" src="{{ asset('/uploads/' ~ i.name)}}"></div>
+		    {% endfor %}
+                
+                
+				<div class="col-md-6">
+					<h1 class="display-5 fw-bolder">{{ plant.frenchName }}</h1>
+					<div class="fs-5 mb-5">
+						<span>Nom latin :
+							<p class="fw-bolder">{{ plant.latinName }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Famille :
+							<p class="fw-bolder">{{ plant.family }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Origine :
+							<p class="fw-bolder">{{ plant.origin }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Floraison :
+							<p class="fw-bolder">{{ plant.flowering }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Plantation :
+							<p class="fw-bolder">{{ plant.planting }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Maintenance :
+							<p class="fw-bolder">{{ plant.maintenance }}</p>
+						</span>
+					</div>
+					<div class="fs-5 mb-5">
+						<span>Notes :
+							<p class="fw-bolder">{{ plant.notes }}</p>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <tr>
-                <th>LatinName</th>
-                <td>{{ plant.latinName }}</td>
-            </tr>
-            <tr>
-                <th>Family</th>
-                <td>{{ plant.family }}</td>
-            </tr>
-            <tr>
-                <th>Origin</th>
-                <td>{{ plant.origin }}</td>
-            </tr>
-            <tr>
-                <th>Flowering</th>
-                <td>{{ plant.flowering }}</td>
-            </tr>
-            <tr>
-                <th>Planting</th>
-                <td>{{ plant.planting }}</td>
-            </tr>
-            <tr>
-                <th>Maintenance</th>
-                <td>{{ plant.maintenance }}</td>
-            </tr>
-            <tr>
-                <th>Notes</th>
-                <td>{{ plant.notes }}</td>
-            </tr>
-            <tr>
-                <th>IsInEncyclopedia</th>
-                <td>{{ plant.isInEncyclopedia ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<!-- Related items section-->
+	<section class="py-5 bg-light">
+		<div class="container px-4 px-lg-5 mt-3">
+
+			<h2 class="fw-bolder mb-5">Autres Plantes
+			</h2>
+
+
+			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+
+				<div class="col mb-5">
+
+					<div
+						class="card h-100">
+						<!-- Product image-->
+						<img
+						class="card" src=""/>
+						<!-- Product details-->
+						<div class="card-body p-4">
+							<div
+								class="text-center">
+								<!-- Product name-->
+								<h5 class="fw-bolder">htthth</h5>
+								<!-- Product price-->
+								thth}€
+							</div>
+
+						</div>
+						<!-- Product actions-->
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+							<div class="text-center">
+								<a class="btn btn-outline-dark mt-auto" href="">Voir</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
 
 {% endblock %}
